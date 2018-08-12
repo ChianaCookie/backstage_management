@@ -98,7 +98,7 @@
                 $('.link_cz > li').removeClass('active');
                 $(this).addClass('active');
             });
-           
+
             /*********************点击事件*********************/
             $( document).ready(function(){
                 $('#nav_list,.link_cz').find('li.home').on('click',function(){
@@ -229,59 +229,59 @@
                     </ul>
                 </li>
                 <%--<li class="purple">--%>
-                    <%--<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-bell-alt"></i><span class="badge badge-important">8</span></a>--%>
-                    <%--<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">--%>
-                        <%--<li class="dropdown-header"><i class="icon-warning-sign"></i>8条通知</li>--%>
-                        <%--<li>--%>
-                            <%--<a href="#">--%>
-                                <%--<div class="clearfix">--%>
-											<%--<span class="pull-left">--%>
-												<%--<i class="btn btn-xs no-hover btn-pink icon-comments-alt"></i>--%>
-												<%--最新消息--%>
-											<%--</span>--%>
-                                    <%--<span class="pull-right badge badge-info">+12</span>--%>
-                                <%--</div>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                <%--<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-bell-alt"></i><span class="badge badge-important">8</span></a>--%>
+                <%--<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">--%>
+                <%--<li class="dropdown-header"><i class="icon-warning-sign"></i>8条通知</li>--%>
+                <%--<li>--%>
+                <%--<a href="#">--%>
+                <%--<div class="clearfix">--%>
+                <%--<span class="pull-left">--%>
+                <%--<i class="btn btn-xs no-hover btn-pink icon-comments-alt"></i>--%>
+                <%--最新消息--%>
+                <%--</span>--%>
+                <%--<span class="pull-right badge badge-info">+12</span>--%>
+                <%--</div>--%>
+                <%--</a>--%>
+                <%--</li>--%>
 
-                        <%--<li>--%>
-                            <%--<a href="#">--%>
-                                <%--<i class="btn btn-xs btn-primary icon-user"></i>--%>
-                                <%--切换为编辑登录..--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#">--%>
+                <%--<i class="btn btn-xs btn-primary icon-user"></i>--%>
+                <%--切换为编辑登录..--%>
+                <%--</a>--%>
+                <%--</li>--%>
 
-                        <%--<li>--%>
-                            <%--<a href="#">--%>
-                                <%--<div class="clearfix">--%>
-											<%--<span class="pull-left">--%>
-												<%--<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>--%>
-												<%--新订单--%>
-											<%--</span>--%>
-                                    <%--<span class="pull-right badge badge-success">+8</span>--%>
-                                <%--</div>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#">--%>
+                <%--<div class="clearfix">--%>
+                <%--<span class="pull-left">--%>
+                <%--<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>--%>
+                <%--新订单--%>
+                <%--</span>--%>
+                <%--<span class="pull-right badge badge-success">+8</span>--%>
+                <%--</div>--%>
+                <%--</a>--%>
+                <%--</li>--%>
 
-                        <%--<li>--%>
-                            <%--<a href="#">--%>
-                                <%--<div class="clearfix">--%>
-											<%--<span class="pull-left">--%>
-												<%--<i class="btn btn-xs no-hover btn-info icon-twitter"></i>--%>
-												<%--用户消息--%>
-											<%--</span>--%>
-                                    <%--<span class="pull-right badge badge-info">+11</span>--%>
-                                <%--</div>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                <%--<li>--%>
+                <%--<a href="#">--%>
+                <%--<div class="clearfix">--%>
+                <%--<span class="pull-left">--%>
+                <%--<i class="btn btn-xs no-hover btn-info icon-twitter"></i>--%>
+                <%--用户消息--%>
+                <%--</span>--%>
+                <%--<span class="pull-right badge badge-info">+11</span>--%>
+                <%--</div>--%>
+                <%--</a>--%>
+                <%--</li>--%>
 
-                        <%--<li>--%>
-                            <%--<a href="#">--%>
-                                <%--查看所有通知--%>
-                                <%--<i class="icon-arrow-right"></i>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                    <%--</ul>--%>
+                <%--<li>--%>
+                <%--<a href="#">--%>
+                <%--查看所有通知--%>
+                <%--<i class="icon-arrow-right"></i>--%>
+                <%--</a>--%>
+                <%--</li>--%>
+                <%--</ul>--%>
                 <%--</li>--%>
 
 
@@ -342,11 +342,11 @@
             <div id="menu_style" class="menu_style">
                 <ul class="nav nav-list" id="nav_list">
                     <li class="home"><a href="javascript:void(0)" name="home.html" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
-                    <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 产品管理 </span><b class="arrow icon-angle-down"></b></a>
+                    <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 课程管理 </span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
-                            <li class="home"><a  href="javascript:void(0)" name="Products_List.html"  title="产品类表" class="iframeurl"><i class="icon-double-angle-right"></i>产品类表</a></li>
-                            <li class="home"><a  href="javascript:void(0)" name="Brand_Manage.html" title="品牌管理"  class="iframeurl"><i class="icon-double-angle-right"></i>品牌管理</a></li>
-                            <li class="home"><a href="javascript:void(0)" name="Category_Manage.html" title="分类管理"  class="iframeurl"><i class="icon-double-angle-right"></i>分类管理</a></li>
+                            <li class="home"><a  href="javascript:void(0)" name="lly/Products_List.jsp"  title="课程审核" class="iframeurl"><i class="icon-double-angle-right"></i>课程审核</a></li>
+                            <li class="home"><a  href="javascript:void(0)" name="lly/Brand_Manage.jsp" title="课程管理"  class="iframeurl"><i class="icon-double-angle-right"></i>课程管理</a></li>
+                            <li class="home"><a href="javascript:void(0)" name="lly/Category_Manage.jsp" title="课程分类"  class="iframeurl"><i class="icon-double-angle-right"></i>课程分类</a></li>
 
                         </ul>
                     </li>
@@ -385,18 +385,7 @@
 
                         </ul>
                     </li>
-                    <li><a href="#" class="dropdown-toggle"><i class="icon-laptop"></i><span class="menu-text"> 店铺管理 </span><b class="arrow icon-angle-down"></b></a>
-                        <ul class="submenu">
-                            <li class="home"><a href="javascript:void(0)" name="Shop_list.html" title="店铺列表" class="iframeurl"><i class="icon-double-angle-right"></i>店铺列表</a></li>
-                            <li class="home"><a href="javascript:void(0)" name="Shops_Audit.html" title="店铺审核" class="iframeurl"><i class="icon-double-angle-right"></i>店铺审核<span class="badge badge-danger">5</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" class="dropdown-toggle"><i class="icon-comments-alt"></i><span class="menu-text"> 消息管理 </span><b class="arrow icon-angle-down"></b></a>
-                        <ul class="submenu">
-                            <li class="home"><a href="javascript:void(0)" name="Guestbook.html" title="留言列表" class="iframeurl"><i class="icon-double-angle-right"></i>留言列表</a></li>
-                            <li class="home"><a href="javascript:void(0)" name="Feedback.html" title="意见反馈" class="iframeurl"><i class="icon-double-angle-right"></i>意见反馈</a></li>
-                        </ul>
-                    </li>
+
                     <li><a href="#" class="dropdown-toggle"><i class="icon-bookmark"></i><span class="menu-text"> 文章管理 </span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
                             <li class="home"><a href="javascript:void(0)" name="article_list.html" title="文章列表" class="iframeurl"><i class="icon-double-angle-right"></i>文章列表</a></li>
@@ -503,11 +492,6 @@
 </div>
 <!--底部样式-->
 
-<div class="footer_style" id="footerstyle">
-    <script type="text/javascript">try{ace.settings.check('footerstyle' , 'fixed')}catch(e){}</script>
-    <p class="l_f">版权所有：南京四美软件  苏ICP备11011739号</p>
-    <p class="r_f">地址：南京市鼓楼区阅江楼街道公共路64号  更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-</div>
 <!--修改密码样式-->
 <div class="change_Pass_style" id="change_Pass">
     <ul class="xg_style">
