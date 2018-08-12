@@ -70,7 +70,12 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
-
+		<!--引入fastjson对应的jar包 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.23</version>
+		</dependency>
 	</dependencies>
 
 	<build>
