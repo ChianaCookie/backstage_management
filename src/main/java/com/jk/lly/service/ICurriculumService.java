@@ -11,4 +11,16 @@ public interface ICurriculumService {
     void addcurriculum(Curriculum curriculum);
 
     JSONObject queryCurriculum(Curriculum curriculum, int offset, int limit);
+
+    void deletecurriculum(String ids);
+
+    void updatecurriculumbyid(Integer curriculumid);
+
+    void updatecurriculumbyids(Integer curriculumid);
+
+    JSONObject queryCurriculumfalse(Curriculum curriculum, int offset, int limit);
+
+    Curriculum querycurriculumbyid(Integer curriculumid);
+
+    void updatecurriculum(Curriculum curriculum);
 }

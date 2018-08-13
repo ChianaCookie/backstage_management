@@ -11,11 +11,13 @@ public class Curriculum {
     private Integer  curriculumnumber;
     private String  curriculumname;
     private Double curriculumprice;
-    private Double curriculumnowprice;
     private Integer curriculumfrom;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date curriculumtime;
-    private Integer auditstatus;
+    private Integer curriculumstatus;
+    private Integer  curriculumtype;
+    private String  curriculumneirong;
+    private String  dismissal;
 
     public Integer getCurriculumid() {
         return curriculumid;
@@ -49,14 +51,6 @@ public class Curriculum {
         this.curriculumprice = curriculumprice;
     }
 
-    public Double getCurriculumnowprice() {
-        return curriculumnowprice;
-    }
-
-    public void setCurriculumnowprice(Double curriculumnowprice) {
-        this.curriculumnowprice = curriculumnowprice;
-    }
-
     public Integer getCurriculumfrom() {
         return curriculumfrom;
     }
@@ -73,12 +67,36 @@ public class Curriculum {
         this.curriculumtime = curriculumtime;
     }
 
-    public Integer getAuditstatus() {
-        return auditstatus;
+    public Integer getCurriculumstatus() {
+        return curriculumstatus;
     }
 
-    public void setAuditstatus(Integer auditstatus) {
-        this.auditstatus = auditstatus;
+    public void setCurriculumstatus(Integer curriculumstatus) {
+        this.curriculumstatus = curriculumstatus;
+    }
+
+    public Integer getCurriculumtype() {
+        return curriculumtype;
+    }
+
+    public void setCurriculumtype(Integer curriculumtype) {
+        this.curriculumtype = curriculumtype;
+    }
+
+    public String getCurriculumneirong() {
+        return curriculumneirong;
+    }
+
+    public void setCurriculumneirong(String curriculumneirong) {
+        this.curriculumneirong = curriculumneirong;
+    }
+
+    public String getDismissal() {
+        return dismissal;
+    }
+
+    public void setDismissal(String dismissal) {
+        this.dismissal = dismissal;
     }
 
     @Override
@@ -88,10 +106,12 @@ public class Curriculum {
                 ", curriculumnumber=" + curriculumnumber +
                 ", curriculumname='" + curriculumname + '\'' +
                 ", curriculumprice=" + curriculumprice +
-                ", curriculumnowprice=" + curriculumnowprice +
                 ", curriculumfrom=" + curriculumfrom +
                 ", curriculumtime=" + curriculumtime +
-                ", auditstatus=" + auditstatus +
+                ", curriculumstatus=" + curriculumstatus +
+                ", curriculumtype=" + curriculumtype +
+                ", curriculumneirong='" + curriculumneirong + '\'' +
+                ", dismissal='" + dismissal + '\'' +
                 '}';
     }
 }

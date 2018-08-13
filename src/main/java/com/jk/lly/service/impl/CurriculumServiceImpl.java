@@ -30,4 +30,47 @@ public class CurriculumServiceImpl implements ICurriculumService {
     }
 
 
+
+
+
+    @Override
+    public void deletecurriculum(String ids) {
+        String[] strs = ids.split(",");
+        for (int i = 0;i < strs.length;i++){
+            iCurriculumMapper.deletecurriculum(strs[i]);
+        }
+    }
+
+    @Override
+    public void updatecurriculumbyid(Integer curriculumid) {
+        iCurriculumMapper.updatecurriculumbyid(curriculumid);
+    }
+
+    @Override
+    public void updatecurriculumbyids(Integer curriculumid) {
+        iCurriculumMapper.updatecurriculumbyids(curriculumid);
+    }
+
+    @Override
+    public JSONObject queryCurriculumfalse(Curriculum curriculum, int offset, int limit) {
+        long totals = iCurriculumMapper.queryCurriculumfalsecount(curriculum);
+        List<Curriculum> list = iCurriculumMapper.queryCurriculumfalse(curriculum,offset,limit);
+        JSONObject json = new JSONObject();
+        json.put("total",totals);
+        json.put("rows",list);
+        return json;
+    }
+
+    @Override
+    public Curriculum querycurriculumbyid(Integer curriculumid) {
+
+        return iCurriculumMapper.querycurriculumbyid(curriculumid);
+    }
+
+    @Override
+    public void updatecurriculum(Curriculum curriculum) {
+        iCurriculumMapper.updatecurriculum(curriculum);
+    }
+
+
 }
