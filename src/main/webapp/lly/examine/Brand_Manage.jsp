@@ -13,8 +13,18 @@
             href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap.min.css"
             rel="stylesheet">
     <script src="${pageContext.request.contextPath}/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <link
+            href="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"
+            rel="stylesheet">
     <script
             src="${pageContext.request.contextPath}/jquery/bootstrap/js/bootstrap.min.js"></script>
+
+    <link
+            href="${pageContext.request.contextPath}/jquery/bootstrap-fileinput/css/fileinput.css"
+            rel="stylesheet">
+    <script
+            src="${pageContext.request.contextPath}/jquery/bootstrap-fileinput/js/fileinput.js"></script>
     <!-- bootstrap-treeview -->
     <link
             href="${pageContext.request.contextPath}/jquery/bootstrap-treeview/dist/bootstrap-treeview.min.css"
@@ -60,33 +70,30 @@
 <body>
 <div class="panel panel-warning">
     <form id="usersel" class="form-inline" >
-        <label>  课程名称：  </label><input type="text" name="loginname" id="loginname" class="form-control">
-        <button id="btn_search" onclick="search_list()" type="button" class="btn btn-default list-group-item-success">
+        <label>  课程名称：  </label><input type="text" name="curriculumname" id="curriculumnameids" class="form-control">
+        <button id="btn_search" onclick="search_lists()" type="button" class="btn btn-default list-group-item-success">
             <span class="" ></span>搜索
         </button>
     </form>
 </div>
 <table class="table" id="file-table"></table>
 <div id="toolbar" class="btn-group">
-    <button id="btn_add" onclick="add_user()" type="button" class="btn btn-default list-group-item-success">
-        <span class="glyphicon glyphicon-plus" ></span>添加课程
-    </button>
     <button id="btn_edit" onclick="update_user()" type="button" class="btn btn-default list-group-item-warning">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>修改课程
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true" ></span>整改课程
     </button>
-    <button id="btn_delete" onclick="delAll()" type="button" class="btn btn-default">
+    <button id="btn_delete" onclick="delAlls()" type="button" class="btn btn-default">
         <span class="" aria-hidden="true"></span>删除课程
     </button>
 </div>
 
 <script type="text/javascript">
 
-    function search_list(){
+    function search_lists(){
         $("#file-table").bootstrapTable("refresh",{offset:1})
     }
 
     $("#file-table").bootstrapTable({
-        url:"<%=request.getContextPath()%>/Curriculum/queryCurriculum",
+        url:"<%=request.getContextPath()%>/Curriculum/queryCurriculumfalse",
         striped:true,				//改变行颜色
         undefinedText: "-", //查找的字段没有发现时的显示内容
         height: $(window).height() - 100, //自定义表格的高度
@@ -98,7 +105,7 @@
         contentType:"application/x-www-form-urlencoded;charset=UTF-8",	//必须的否则条件查询时会乱码
         sidePagination: "server",  //分页方式:client客户端分页,server服务端分页
         queryParams:function(params){
-            var name =$("#loginname").val();
+            var name =$("#curriculumnameids").val();
             params.curriculumname=name;
             return params;
         },
@@ -112,20 +119,17 @@
             title: '课程名称'
         }, {
             field: 'curriculumprice',
-            title: '课程原价'
-        },{
-            field: 'curriculumnowprice',
-            title: '课程现价',
+            title: '课程价格'
         }, {
             field: 'curriculumfrom',
             title: '课程来源',
             formatter:function(value,row,index){
                 if(value == 1){
-                    return "中";
+                    return "中国";
                 }else if(value == 2){
-                    return "英";
+                    return "英国";
                 }else{
-                    return "美";
+                    return "美国";
                 }
             }
         }, {
@@ -137,7 +141,7 @@
                 return localdate;
             }
         }, {
-            field: 'auditstatus',
+            field: 'curriculumstatus',
             title: '审核状态',
             formatter:function(value,row,index){
                 if(value == 1){
@@ -148,14 +152,125 @@
                     return "驳回"
                 }
             }
+        },{
+            field: 'curriculumtype',
+            title: '课程类型',
+            formatter:function(value,row,index){
+                if(value == 1){
+                    return "文种类型"
+                }else if(value == 2){
+                    return "技巧类型"
+                }
+            }
+        },{
+            field: 'dismissal',
+            title: '驳回原因'
         }, {
             field: '',
             title: '操作',
             formatter:function(value,row,index){
-                return "<a onclick = ''>审核</a>";
+                return '<a href="#" onclick="updateStatee(\''+row.curriculumid+'\')">审核</a>';
+
             }
         },]
     })
+
+    function getIdSelections() {
+        return $.map($("#file-table").bootstrapTable('getSelections'), function(row) {
+            return row.curriculumid;
+        });
+    }
+    function update_user(){
+        var id = getIdSelections();
+        if(id.length > 1 || id.length == 0){
+            alert("请选择一行数据进行修改！！");
+        }else{
+            BootstrapDialog.show({
+                title : '修改课程 ',
+                message: $('<div></div>').load("<%=request.getContextPath()%>/Curriculum/querycurriculumbyid?curriculumid="+id),
+                buttons : [ {// 设置关闭按钮
+                    label : '关闭',
+                    action : function(dialogItself) {
+                        dialogItself.close();
+                    }
+                }, {// 设置关闭按钮
+                    label : '保存',
+                    action : function(dialogItself) {
+                        $.ajax({
+                            url:"<%=request.getContextPath()%>/Curriculum/updatecurriculum",
+                            type:"post",
+                            data:$("#update_form_id").serialize(),
+                            success:function(result){
+                                if(result == 1){
+                                    alert("整改课程成功！！");
+                                }
+                                $("#file-table").bootstrapTable("refresh",{offset:3})
+                                dialogItself.close();
+
+                            },
+                            error:function(){
+                                alert("请求失败！！！");
+                            }
+                        })
+
+                    }
+                } ],
+            });
+        }
+
+    }
+
+    function delAlls(){
+        var ids = getIdSelections();
+        if(ids.length > 0){
+            if(confirm("你确定要删除这"+ids.length+"个数据吗？")){
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/Curriculum/deletecurriculum?ids="+ids,
+                    type:"post",
+                    dataType:"json",
+                    success:function(result){
+                        if(result == 1){
+                            alert("删除成功！！");
+                        }
+                        $("#file-table").bootstrapTable("refresh",{offset:1})
+                    },
+                    error:function(){
+                        $.messager.alert('提示','请求失败！','info');
+                    }
+                });
+            }
+        }else{
+            alert("请选择一行数据进行删除！！")
+        }
+    }
+
+    function updateStatee(curriculumid){
+        if(curriculumid!=null && curriculumid!=""){
+            $.ajax({
+                url:"<%=request.getContextPath()%>/Curriculum/updatecurriculumbyid?curriculumid="+curriculumid,
+                data:{curriculumid:curriculumid},
+                type:"post",
+                dataType:"text",
+                async:false,
+                success: function (result) {
+                    if (result==1){
+
+                        alert("审核通过")
+                        $("#file-table").bootstrapTable("refresh",{offset:1})
+
+                    }
+
+                },
+                error: function () {
+                    alert("幸福是回来敲门的！")
+                }
+
+            });
+
+        }
+
+    }
+
 
 
 </script>

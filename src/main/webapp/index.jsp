@@ -344,10 +344,8 @@
                     <li class="home"><a href="javascript:void(0)" name="home.html" class="iframeurl" title=""><i class="icon-home"></i><span class="menu-text"> 系统首页 </span></a></li>
                     <li><a href="#" class="dropdown-toggle"><i class="icon-desktop"></i><span class="menu-text"> 课程管理 </span><b class="arrow icon-angle-down"></b></a>
                         <ul class="submenu">
-                            <li class="home"><a  href="javascript:void(0)" name="lly/Products_List.jsp"  title="课程审核" class="iframeurl"><i class="icon-double-angle-right"></i>课程审核</a></li>
-                            <li class="home"><a  href="javascript:void(0)" name="lly/Brand_Manage.jsp" title="课程管理"  class="iframeurl"><i class="icon-double-angle-right"></i>课程管理</a></li>
-                            <li class="home"><a href="javascript:void(0)" name="lly/Category_Manage.jsp" title="课程分类"  class="iframeurl"><i class="icon-double-angle-right"></i>课程分类</a></li>
-
+                            <li class="home"><a  href="javascript:void(0)" name="lly/examine/Products_List.jsp"  title="课程审核" class="iframeurl"><i class="icon-double-angle-right"></i>课程审核</a></li>
+                            <li class="home"><a  href="javascript:void(0)" name="lly/examine/Brand_Manage.jsp" title="课程管理"  class="iframeurl"><i class="icon-double-angle-right"></i>课程管理</a></li>
                         </ul>
                     </li>
                     <li>
