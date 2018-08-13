@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.lly.mapper.ICurriculumMapper">
+    <!--查询总条数 -->
+ <select id="querycurriculumCount" resultType="long">
+    select count(*) from lly_curriculum  where curriculumstatus!=3
+
+         <if test="curriculum.curriculumname != null and curriculum.curriculumname != '' ">
+             and curriculumname like '%${curriculum.curriculumname}%'
+         </if>
+
+ </select>
+    <!--查询用户所有的数据 -->
+    <select id = "queryCurriculum" resultType="com.jk.lly.pojo.Curriculum">
+        select * from lly_curriculum  where curriculumstatus!=3
+
+            <if test="curriculum.curriculumname != null and curriculum.curriculumname != '' ">
+                and curriculumname like '%${curriculum.curriculumname}%'
+            </if>
+
+        LIMIT #{start},#{end}
+    </select>
+    <insert id="addcurriculum">
+      insert into lly_curriculum(curriculumnumber,curriculumname,curriculumprice,curriculumfrom,curriculumtime,curriculumstatus,curriculumtype)
+      values(#{curriculumnumber},#{curriculumname},#{curriculumprice},#{curriculumfrom},now(),1,#{curriculumtype})
+    </insert>
+<delete id="deletecurriculum">
+ delete from lly_curriculum
+    where curriculumid = #{ids}
+
+</delete>
+    <update id="updatecurriculumbyid">
+   update lly_curriculum set curriculumstatus=2 WHERE curriculumid=#{curriculumid}
+
+    </update>
+    <update id="updatecurriculumbyids">
+
+ update lly_curriculum set curriculumstatus=3 WHERE curriculumid=#{curriculumid}
+
+    </update>
+<select id="queryCurriculumfalsecount" resultType="long">
+   select count(*) from lly_curriculum  where curriculumstatus=3
+    <if test="curriculum.curriculumname != null and curriculum.curriculumname != '' ">
+        and curriculumname like '%${curriculum.curriculumname}%'
+    </if>
+</select>
+<select id="queryCurriculumfalse" resultType="com.jk.lly.pojo.Curriculum">
+  select * from lly_curriculum where curriculumstatus=3
+    <if test="curriculum.curriculumname != null and curriculum.curriculumname != '' ">
+        and curriculumname like '%${curriculum.curriculumname}%'
+    </if>
+</select>
+    <select id="querycurriculumbyid" resultType="com.jk.lly.pojo.Curriculum">
+       select * from lly_curriculum where curriculumid=#{curriculumid}
+    </select>
+    <update id="updatecurriculum">
+            update lly_curriculum set curriculumnumber=#{curriculumnumber},curriculumname=#{curriculumname},curriculumprice=#{curriculumprice},curriculumfrom=#{curriculumfrom},curriculumtype=#{curriculumtype}
+             where curriculumid=#{curriculumid}
+    </update>
+</mapper>
