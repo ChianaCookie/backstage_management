@@ -3,18 +3,19 @@ package com.jk.lly.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.lly.pojo.Curriculum;
 import com.jk.lly.service.ICurriculumService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
-
 @Controller
 @RequestMapping("Curriculum")
 public class CurriculumController {
-    @Resource
+
+   @Autowired
     private ICurriculumService iCurriculumService;
+
     //分页
     @RequestMapping("queryCurriculum")
     @ResponseBody

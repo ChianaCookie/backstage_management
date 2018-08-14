@@ -1,10 +1,12 @@
 package com.jk.lly.mapper;
 
 import com.jk.lly.pojo.Curriculum;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface ICurriculumMapper {
 
 

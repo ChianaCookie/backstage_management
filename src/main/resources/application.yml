@@ -4,14 +4,29 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
+    redis:
+        database: 0
+        host: 127.0.0.1
+        port: 6379
+        jedis:
+          pool:
+            max-active: 8
+            max-wait: -1
+            max-idle: 8
+            min-idle: 0
+        timeout: 5000
+
+
   mvc:
     view:
       suffix: .jsp
-server:
-  port: 8080
-  servlet:
-    context-path: /backstage_management
-mybatis:
+      prefix:
+
+  server:
+    port: 8080
+    servlet:
+       context-path: /backstage_management
+  mybatis:
     mapper-locations: /mappering/*/*.xml
     type-aliases-package: com.jk.*.pojo
 

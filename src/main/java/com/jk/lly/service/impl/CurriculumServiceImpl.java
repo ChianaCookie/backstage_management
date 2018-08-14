@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class CurriculumServiceImpl implements ICurriculumService {
+public class CurriculumServiceImpl  implements ICurriculumService{
     @Resource
     private ICurriculumMapper iCurriculumMapper;
 
