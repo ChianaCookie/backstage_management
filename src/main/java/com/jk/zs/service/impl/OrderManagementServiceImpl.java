@@ -25,7 +25,6 @@ public class OrderManagementServiceImpl implements OrderManagementService{
     private OrderManagementMapper orderManagementMapper;
 
     @Override
-    @Cacheable(value="thisredis", key="'queryOrderList'")
     public JSONObject queryOrderList(int offset, int limit, String typeid, Order order) {
         Integer total=orderManagementMapper.queryOrderCount(typeid, order);
         List<Order> orderlist=orderManagementMapper.queryOrderList(offset,limit,typeid,order);
@@ -36,7 +35,7 @@ public class OrderManagementServiceImpl implements OrderManagementService{
     }
 
     @Override
-    @Cacheable(value="thisredis", key="'queryProportionalStatistics'")
+    @Cacheable(value="OrderData ", key="'queryProportionalStatistics'")
     public List<Order> queryProportionalStatistics() {
         HashMap<String, Object> map=new HashMap<>();
         List<Order> countlist=orderManagementMapper.queryProportionalStatistics();
@@ -54,7 +53,7 @@ public class OrderManagementServiceImpl implements OrderManagementService{
 
     //查询全部订单数据接口
     @Override
-    @Cacheable(value="thisredis", key="'queryTotalOrderData'")
+    @Cacheable(value="OrderData ", key="'queryTotalOrderData'")
     public List<Order> queryTotalOrderData() {
 
         return orderManagementMapper.queryTotalOrderData();
@@ -62,49 +61,49 @@ public class OrderManagementServiceImpl implements OrderManagementService{
 
     //查询已完成订单数据接口
     @Override
-    @Cacheable(value="thisredis", key="'querycompleteOrderData'")
+    @Cacheable(value="OrderData ", key="'querycompleteOrderData'")
     public List<Order> querycompleteOrderData() {
         return orderManagementMapper.querycompleteOrderData();
     }
 
     //查询未完成订单数据接口
     @Override
-    @Cacheable(value="thisredis", key="'queryuncompleteOrderData'")
+    @Cacheable(value="OrderData ", key="'queryuncompleteOrderData'")
     public List<Order> queryuncompleteOrderData() {
         return orderManagementMapper.queryuncompleteOrderData();
     }
 
     // 查询交易金额，订单数量接口
     @Override
-    @Cacheable(value="thisredis", key="'queryTransacTionamount'")
+    @Cacheable(value="OrderData ", key="'queryTransacTionamount'")
     public Order queryTransacTionamount() {
         return orderManagementMapper.queryTransacTionamount();
     }
 
     //查询退款金额，订单数量
     @Override
-    @Cacheable(value="thisredis", key="'queryRefundAmount'")
+    @Cacheable(value="OrderData ", key="'queryRefundAmount'")
     public Order queryRefundAmount() {
         return orderManagementMapper.queryRefundAmount();
     }
 
     //查询待付款金额，订单数量
     @Override
-    @Cacheable(value="thisredis", key="'querypendingPayment'")
+    @Cacheable(value="OrderData ", key="'querypendingPayment'")
     public Order querypendingPayment() {
         return orderManagementMapper.querypendingPayment();
     }
 
     //查询已付款金额，订单数量接口
     @Override
-    @Cacheable(value="thisredis", key="'queryAlreadyPaid'")
+    @Cacheable(value="OrderData ", key="'queryAlreadyPaid'")
     public Order queryAlreadyPaid() {
         return orderManagementMapper.queryAlreadyPaid();
     }
 
     //查询退款订单数据接口
     @Override
-    @Cacheable(value="thisredis", key="'queryrefundAmountData'")
+    @Cacheable(value="OrderData ", key="'queryrefundAmountData'")
     public List<Order> queryrefundAmountData() {
         return orderManagementMapper.queryrefundAmountData();
     }

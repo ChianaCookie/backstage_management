@@ -28,12 +28,8 @@
 
 <body class="login-layout Reg_log_style">
 <div class="logintop">
-    <span>欢迎后台管理界面平台</span>
-    <ul>
-        <li><a href="#">返回首页</a></li>
-        <li><a href="#">帮助</a></li>
-        <li><a href="#">关于</a></li>
-    </ul>
+    <span>欢迎来到后台管理界面平台</span>
+
 </div>
 <div class="loginbody">
     <div class="login-container">
@@ -99,7 +95,55 @@
         </div><!-- /position-relative -->
     </div>
 </div>
-<div class="loginbm">版权所有  2016  <a href="">南京思美软件系统有限公司</a> </div><strong></strong>
+<div class="loginbm">版权所有    <a href="">南京思美软件系统有限公司</a> </div><strong></strong>
 </body>
+<script>
+    $('#login_btn').on('click', function(){
+        var num=0;
+        var str="";
+        $("input[type$='text'],input[type$='password']").each(function(n){
+            if($(this).val()=="")
+            {
 
+                layer.alert(str+=""+$(this).attr("name")+"不能为空！\r\n",{
+                    title: '提示框',
+                    icon:0,
+                });
+                num++;
+                return false;
+            }
+        });
+        if(num>0){  return false;}
+        else{
+            layer.alert('登录成功！',{
+                title: '提示框',
+                icon:1,
+            });
+            location.href="index.html";
+            layer.close(index);
+        }
+
+    });
+    $(document).ready(function(){
+        $("input[type='text'],input[type='password']").blur(function(){
+            var $el = $(this);
+            var $parent = $el.parent();
+            $parent.attr('class','frame_style').removeClass(' form_error');
+            if($el.val()==''){
+                $parent.attr('class','frame_style').addClass(' form_error');
+            }
+        });
+        $("input[type='text'],input[type='password']").focus(function(){
+            var $el = $(this);
+            var $parent = $el.parent();
+            $parent.attr('class','frame_style').removeClass(' form_errors');
+            if($el.val()==''){
+                $parent.attr('class','frame_style').addClass(' form_errors');
+            } else{
+                $parent.attr('class','frame_style').removeClass(' form_errors');
+            }
+        });
+    })
+
+</script>
 </html>
