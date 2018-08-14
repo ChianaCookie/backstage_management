@@ -50,9 +50,9 @@
                     <a href="javascript:void(0)"  class="yingchan_btn Statistic_btn b_n_btn">隐藏</a>
                 </div>
             </div>
-            <div class="hide_style clearfix"  >
+            <div class="hide_style clearfix" id="type_bili" >
                 <div class="proportion" id="wenzhongceshi"><div id="wenzhong" class="easy-pie-chart percentage" data-percent=""  data-color="#D15B47"><span id="WenZhongLei" class="percent"></span>%</div><span class="name">文种类</span> </div>
-                <div class="proportion"> <div class="easy-pie-chart percentage" data-percent=""  data-color="#87CEEB"><span id="JiQiaoLei" class="percent"></span>%</div><span class="name">技巧类</span></div>
+                <div class="proportion"> <div id="jiqiao" class="easy-pie-chart percentage"  data-percent=""  data-color="#87CEEB"><span id="JiQiaoLei" class="percent"></span>%</div><span class="name">技巧类</span></div>
             </div>
         </div>
         <!--内容-->
@@ -140,9 +140,13 @@
                     var JiQiaoLei = Math.round(Number(result[1].courseTotal) / allKinds * 10000) / 100.00
                     var test = document.getElementById("wenzhong");
                     $("#wenzhong").attr("data-percent", WenZhongLei)
+                    var jiqiao = document.getElementById("jiqiao");
+                    $("#jiqiao").attr("data-percent", JiQiaoLei)
                     $("#courseTotal").html(allKinds)
                     $("#WenZhongLei").html(WenZhongLei)
                     $("#JiQiaoLei").html(JiQiaoLei)
+                    ceshieasyPieChart()
+
 
                 }
             }
@@ -339,18 +343,22 @@
         $(".list_right_style").width($(window).width()-250);
     })
     //比例
-    var oldie = /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase());
-    $('.easy-pie-chart.percentage').each(function(){
-        $(this).easyPieChart({
-            barColor: $(this).data('color'),
-            trackColor: '#EEEEEE',
-            scaleColor: false,
-            lineCap: 'butt',
-            lineWidth: 10,
-            animate: oldie ? false : 1000,
-            size:103
-        }).css('color', $(this).data('color'));
-    });
+    function ceshieasyPieChart(){
+        var oldie = /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase());
+        $('.easy-pie-chart.percentage').each(function(){
+            $(this).easyPieChart({
+                barColor: $(this).data('color'),
+                trackColor: '#EEEEEE',
+                scaleColor: false,
+                lineCap: 'butt',
+                lineWidth: 10,
+                animate: oldie ? false : 1000,
+                size:103
+            }).css('color', $(this).data('color'));
+        });
+
+    }
+
 
     $('[data-rel=tooltip]').tooltip();
     $('[data-rel=popover]').popover({html:true});
