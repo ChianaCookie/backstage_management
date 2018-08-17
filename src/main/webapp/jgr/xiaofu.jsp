@@ -109,7 +109,109 @@
                     }
                 },
                 {field:'classname',title:'类名',width:200},
-                {field:'methodname',title:'方法名',width:200},
+                {field:'methodname',title:'方法名',width:200,
+                    formatter: function(value,row,index){
+                        if (value=="queryOrderList"){
+                            return "查询订单信息"
+                        }else if(value=="queryProportionalStatistics"){
+                            return "查询每种商品类型的数量"
+                        }else if(value=="queryTotalOrderData"){
+                            return "查询生成报表所需数据"
+                        }else if(value=="querycompleteOrderData"){
+                            return "已付款订单数据"
+                        }else if(value=="queryuncompleteOrderData"){
+                            return "待付款订单数据"
+                        }else if(value=="queryrefundAmountData"){
+                            return "退款订单数据"
+                        }else if(value=="queryTransacTionamount"){
+                            return "查询交易信息"
+                        }else if(value=="queryRefundAmount"){
+                            return "退款金额，订单数量"
+                        }else if(value=="querypendingPayment"){
+                            return "待付款金额，订单数量"
+                        }else if(value=="queryAlreadyPaid"){
+                            return "已付款金额，订单数量"
+                        }else if(value=="queryCurriculum"){
+                            return "课程分页条件查询"
+                        }else if(value=="addcurriculum"){
+                            return "课程新增"
+                        }else if(value=="deletecurriculum"){
+                            return "删除课程"
+                        }else if(value=="updatecurriculumbyid"){
+                            return "根据id审核通过"
+                        }else if(value=="updatecurriculumbyids"){
+                            return "根据id审核驳回"
+                        }else if(value=="queryCurriculumfalse"){
+                            return "查询驳回的数据"
+                        }else if(value=="querycurriculumbyid"){
+                            return "整改课程回显"
+                        }else if(value=="updatecurriculum"){
+                            return "课程回显"
+                        }
+//                        else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }else if(value==""){
+//                            return ""
+//                        }
+
+                    }
+                },
                 {field:'createTime',title:'时间',width:200,
                     formatter: function(value,row,index){
                         var unixTimestamp = new Date( row.createTime*1000 ) ;
